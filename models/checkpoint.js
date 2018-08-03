@@ -6,6 +6,8 @@ const checkpointSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User'},
   weight: Number,
   bf: Number,
+  fat: Number,
+  lbm: Number
 });
 
 checkpointSchema.set('timestamps', true);

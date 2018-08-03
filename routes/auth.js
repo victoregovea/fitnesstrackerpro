@@ -19,7 +19,7 @@ router.get('/login', (req, res, next) => {
   });
 
 router.post('/signup', (req, res, next) => {
-    const {name, email, password} = req.body;
+    const {name, email, password, sex} = req.body;
   
     if (email === '' || password === '') {
       res.render('auth/signup', {
@@ -47,7 +47,8 @@ router.post('/signup', (req, res, next) => {
       const theUser = new User({
         name,
         email,
-        password: hashedPass
+        password: hashedPass,
+        sex
       });
   
       theUser.save((err) => {

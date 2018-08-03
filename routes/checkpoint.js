@@ -25,11 +25,16 @@ router.get('/dashboard', (req, res, next) => {
 });
 
 
+
+
+
 router.post('/dashboard', (req, res, next) => {
     const checkpointInfo = {
       user: req.session.currentUser._id ,
       weight: req.body.weight,
       bf: req.body.bf,
+      fat: (req.body.weight)*((req.body.bf)/100),
+      lbm: (req.body.weight)-((req.body.weight)*((req.body.bf)/100)),
     };
     const theCheckpoint = new checkpoint(checkpointInfo);
     theCheckpoint.save((err) => {

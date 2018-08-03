@@ -1,10 +1,4 @@
-<h2> Your laundry Dashboard </h2>
-
-<ul>
-  <li> <a href="/launderers"> Find a Launderer </a> </li>
-  <li> <a href="/logout"> Log Out </a> </li>
-</ul>
-
+<h2> Your Progress Dashboard </h2>
 {{!-- {{#if currentUserInfo.isLaunderer}}
   <h3> You are a launderer </h3>
 
@@ -40,25 +34,57 @@
 {{/each}}
 </ul> --}}
 
-<h1>Checkpoint</h1>
-{{#each checkpoints}}
-    <p>{{this.weight}}</p>
-    <p>{{this.bf}}</p>
-{{/each}}
 
 
 
-<form action="/dashboard" method="post">
-  <div>
-    <label for="weight-input"> Weight </label>
-    <input type="text" name="weight" id="weight-input"
-      placeholder="e.g., 120 lb">
-  </div>
+<div class="container">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Weight</th>
+        <th scope="col">BF</th>
+        <th scope="col">Fat</th>
+        <th scope="col">LBM</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each checkpoints}}
+      <tr>
+        <td>{{this.checkpointDate}}</td>
+        <td>{{this.weight}}  lb</td>
+        <td>{{this.bf}}%</td>
+        <td>{{this.fat}}</td>
+        <td>{{this.lbm}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
 
-  <div>
-    <label for="bf-input"> Body Fat % </label>
-    <input type="number" name="bf" id="bf-input"
-      placeholder="e.g., 15%">
-  </div>
-    <button> Add New Checkpoint </button>
-</form>
+
+
+<div class="container">
+  <form action="/dashboard" class = "form-group" method="post">
+    <div class='mt-3'>
+      <label for="weight-input"> Weight </label>
+      <input type="text" class="form-control" name="weight" id="weight-input"
+        placeholder="e.g., 120 lb">
+    </div>
+  
+    <div class='mt-3'>
+      <label for="bf-input"> Body Fat % </label>
+      <input type="number" class="form-control" name="bf" id="bf-input"
+        placeholder="e.g., 15%">
+    </div>
+      <div class="text-center">
+      <button type="submit" class="btn btn-primary mt-3"> Add New Checkpoint </button></div>
+  </form>
+</div>
+
+
+<div class='container text-center mt-5'>
+  <img src="/images/BFChart.jpg" alt="">
+</div>
+
+
