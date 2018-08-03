@@ -5,8 +5,7 @@ const userSchema = new Schema({
   name: String,
   email: String,
   password: String,
-  isLaunderer: { type: Boolean, default: false },
-  fee: { type: Number, default: null }
+  sex: {type: String, enum: ['Masculine', 'Femenine']}
 });
 
 userSchema.set('timestamps', true);
