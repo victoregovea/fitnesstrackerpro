@@ -15,17 +15,14 @@ router.use((req, res, next) => {
 
 
 router.get('/dashboard', (req, res, next) => {
-    checkpoint.find()
-    .then(checkpoints => {
-      res.render("../views/checkpoint/dashboard.hbs", { checkpoints });
-    })
-    .catch(error => {
-      console.log(error)
-    })
+  checkpoint.find()
+  .then(checkpoints => {
+    res.render("../views/checkpoint/dashboard.hbs", { checkpoints });
+  })
+  .catch(error => {
+    console.log(error)
+  })
 });
-
-
-
 
 
 router.post('/dashboard', (req, res, next) => {
