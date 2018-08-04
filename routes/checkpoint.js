@@ -15,7 +15,8 @@ router.use((req, res, next) => {
 
 
 router.get('/dashboard', (req, res, next) => {
-  checkpoint.find()
+
+  checkpoint.find({user:req.session.currentUser._id})
   .then(checkpoints => {
     res.render("../views/checkpoint/dashboard.hbs", { checkpoints });
   })
